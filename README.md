@@ -29,11 +29,11 @@ If you are still using Strapi 4, you can use version 1.7.1 of this plugin, which
 
 Install with NPM.
 ```bash
-npm i @retikolo/drag-drop-content-types-strapi
+npm i @retikolo/drag-drop-content-types
 ```
 Install with Yarn.
 ```bash
-yarn add @retikolo/drag-drop-content-types-strapi
+yarn add @retikolo/drag-drop-content-types
 ```
 
 ## 🔧 Configuration

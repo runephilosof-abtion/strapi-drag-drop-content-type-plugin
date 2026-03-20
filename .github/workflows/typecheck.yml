@@ -1,0 +1,44 @@
+name: Typecheck
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  typecheck-server:
+    name: Server types (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false # Explicitly disable caching if you don't have a lockfile
+
+      - run: npm install
+
+      - name: Check server types
+        run: npm run test:ts:back
+
+  typecheck-admin:
+    name: Admin types (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false # Explicitly disable caching if you don't have a lockfile
+
+      - run: npm install
+
+      - name: Check admin types
+        run: npm run test:ts:front

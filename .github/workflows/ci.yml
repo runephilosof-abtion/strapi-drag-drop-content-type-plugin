@@ -42,3 +42,21 @@ jobs:
 
       - name: Check admin types
         run: npm run test:ts:front
+
+  test:
+    name: Test (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          package-manager-cache: false # Explicitly disable caching if you don't have a lockfile
+
+      - run: npm install
+
+      - run: npm run test

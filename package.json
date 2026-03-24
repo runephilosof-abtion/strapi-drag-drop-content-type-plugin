@@ -46,6 +46,7 @@
   ],
   "scripts": {
     "build": "strapi-plugin build",
+    "test": "vitest run",
     "test:ts:back": "tsc -p server/tsconfig.json",
     "test:ts:front": "tsc -p admin/tsconfig.json",
     "verify": "strapi-plugin verify",
@@ -66,14 +67,18 @@
     "@strapi/sdk-plugin": "^5.2.6",
     "@strapi/strapi": "^5.0.0",
     "@strapi/typescript-utils": "^5.0.0",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
+    "jsdom": "^29.0.1",
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "styled-components": "^6.1.13",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "vitest": "^4.1.0"
   },
   "peerDependencies": {
     "@strapi/sdk-plugin": "^5.2.6",
